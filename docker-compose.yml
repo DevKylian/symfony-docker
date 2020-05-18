@@ -9,6 +9,7 @@ services:
       container_name: docker-symfony4-mysql
       command: --default-authentication-plugin=mysql_native_password
       restart: always
+      working_dir: /application
       environment:
         MYSQL_DATABASE: testDB
         MYSQL_USER: testDB
@@ -21,13 +22,16 @@ services:
 
     adminer:
       image: adminer
+      container_name: docker-symfony4-adminer
       restart: always
+      working_dir: /application
       ports:
         - 8085:8080
 
     webserver:
       image: nginx:alpine
       container_name: docker-symfony4-webserver
+      restart: always
       working_dir: /application
       volumes:
           - .:/application
@@ -38,8 +42,9 @@ services:
     php-fpm:
       build: phpdocker/php-fpm
       container_name: docker-symfony4-php-fpm
+      restart: always
       working_dir: /application
       volumes:
         - .:/application
-        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
 
