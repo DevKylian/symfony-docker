@@ -51,6 +51,8 @@ RUN apk add --update --no-cache \
         git \
         patch
 
+# --------------------------------------------------- Install nodejs and npm
+RUN apk add --update --no-cache nodejs npm
 
 # --------------------------------------------------- Install build dependancies
 RUN apk add --update --no-cache --virtual .docker-php-global-dependancies \
