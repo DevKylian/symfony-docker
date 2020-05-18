@@ -12,6 +12,7 @@
 - mv /application/symfony/.* /application
 - rm -Rf /application/symfony
 - cd /application
+> Etapes suivantes facultatives
 - composer require annotations
 - composer require --dev profiler
 - composer require twig
@@ -24,7 +25,7 @@
 > In your .env file (symfony project)
 - Change this 'DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name'
 > Set this variable in your docker-compose.yml
-- For this 'DATABASE_URL=mysql://testDB:testDB@127.0.0.1:3306/testDB'
+- For this 'DATABASE_URL=mysql://root:root@172.28.1.3:3306/db_name'
 
 ### 📌 Docker CLI
 - docker-compose down
@@ -33,11 +34,9 @@
 - docker-compose up -d --build
 - docker-compose exec php-fpm bash
 > Inside php-fpm bash , type this example command
-- bin/console doc:sch:crea
+- php bin/console doc:sch:crea
 
 ### 📌 Database Access
-> Go to http://localhost:8085/
-- Server : db
-- User : testDB
-- Password : testDB
-- Database : testDB
+> Go to http://localhost:8080/
+- User : root
+- Password : root
