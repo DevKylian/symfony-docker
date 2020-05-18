@@ -29,6 +29,8 @@
 ### 📌 Docker CLI
 - docker-compose down
 - docker-compose up -d
+> To build new Dockerfile
+- docker-compose up -d --build
 - docker-compose exec php-fpm bash
 > Inside php-fpm bash , type this example command
 - bin/console doc:sch:crea
